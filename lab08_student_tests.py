@@ -40,3 +40,31 @@ def test_recursiveReverseList_2():
 
 def test_recursiveReverseList_3():
     assert recursiveReverseList(['a']) == ['a']
+
+from lab08 import isAnagram
+
+def test_isAnagram_1():
+    assert isAnagram("Eleven plus two", "Twelve plus one") == True
+
+def test_isAnagram_2():
+    assert isAnagram('Hello', 'Helo') == False
+
+def test_isAnagram_3():
+    assert isAnagram('This is not', 'The same as this') == False
+
+def test_isAnagram_4():
+    assert isAnagram("School master","The Classroom") == True
+
+from lab08 import isPalindrome
+
+def test_isPalindrome_1():
+    for i in range(1, 4):
+        assert isPalindrome('a'*i) == True
+
+def test_isPalindrome_2():
+    assert isPalindrome('') == False
+
+def test_isPalindrome_3():
+    assert isPalindrome("Redivider") == True
+
+

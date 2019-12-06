@@ -39,3 +39,58 @@ def recursiveReverseList(L):
     elif (len(L) > 0):
         return [L[-1]]+recursiveReverseList(L[0:len(L)-1])
     return "stub"
+
+def isAnagramHelp(l1, l2):
+    if (len(l1) == len(l2)):
+        if l1[0] in l2:
+            i = l2.index(l1[0])
+            l1.pop(0)
+            l2.pop(i)
+            if (l1 == l2):
+                return True
+            else:
+                return isAnagramHelp(l1, l2)
+        else:
+            return False
+    return "stub"
+
+def isAnagram(s1, s2):
+    '''
+    Takes two strings and compares the characters in them to see if
+    they are anagrams of each other
+    '''
+    
+    if (len(s1) == len(s2)):
+        if (s1 == s2):
+            return True
+        else:
+            l1 = list(s1.lower())
+            l2 = list(s2.lower())
+            for i in range(len(l1)-1, -1, -1):
+                if l1[i].isalnum():
+                    continue
+                else:
+                    l1.pop(i)
+            for i in range(len(l2)-1, -1, -1):
+                if l2[i].isalnum():
+                    continue
+                else:
+                    l2.pop(i)
+            return isAnagramHelp(l1, l2)
+    else:
+        return False
+    return "stub"
+
+def isPalindrome(s):
+    '''
+    Determines whether or not a string is a Palindrome
+    '''
+    s = s.lower()
+    if (len(s) > 0) and (len(s) <= 2):
+        if s[0] == s[-1]:
+            return True
+    elif (len(s) > 2):
+        if (s[0] == s[-1]):
+            return isPalindrome(s[1:-1])
+    return False
+
